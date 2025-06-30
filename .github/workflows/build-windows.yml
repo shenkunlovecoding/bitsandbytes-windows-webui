@@ -115,7 +115,7 @@ jobs:
           cmake -S . -B "./build_$cudaVersion_1" -G "Visual Studio 17 2022" -T "cuda=$cudaVersion" -D "NO_CUBLASLT=1" -D "CUDA_TARGET_ARCH_FEATURE_LEVEL=$cudaVersion" -D "CIBUILD=1"
           cmake --build "./build_$cudaVersion_1" --target libbitsandbytes_cuda --config Release
         
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ format('compiled-binaries-{0}', inputs.version) }}
           path: ./BuildArtifacts/*
